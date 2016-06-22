@@ -1,2 +1,6 @@
-class Movie < ActiveRecord::Base
+class Movie
+
+  def index
+  end
+
 end
