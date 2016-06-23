@@ -1,16 +1,5 @@
 var Movies = React.createClass({
-  search: function(id) {
-    console.log(id);
-    var data = { genreID: id };
 
-    $.ajax({
-      method: 'GET',
-      url: '/movie/',
-      data: data,
-
-    });
-
-  },
   render: function() {
     return (
       <div class="row">

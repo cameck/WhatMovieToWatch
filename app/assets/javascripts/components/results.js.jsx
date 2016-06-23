@@ -18,8 +18,14 @@ var Results = React.createClass({
   nextMovie: function() {
     if (this.state.i < 10) {
       var i = this.state.i + 1;
-      this.setState({ i: i});
-      
+      this.setState({ i: i });
+    }
+  },
+
+  previousMovie: function() {
+    if (this.state.i > 0) {
+      var i = this.state.i - 1;
+      this.setState({ i: i });
     }
   },
 
@@ -27,8 +33,9 @@ var Results = React.createClass({
 
     return (
       <div className="row">
+      <h1>Watch This</h1>
         <div className="col s12 m7">
-          <div className="card">
+          <div className="card hoverable">
             <div className="card-image">
               <img src={"https://image.tmdb.org/t/p/original" + this.state.movies[this.state.i].backdrop_path.toString()} />
               <span className="card-title">{this.state.movies[this.state.i].original_title.toString()}</span>
@@ -41,8 +48,12 @@ var Results = React.createClass({
               </p>
             </div>
             <div className="card-action">
-              <a onClick={this.nextMovie}>Meh</a>
-              <a onClick={this.nextMovie}>Seen it</a>
+              <i className="small material-icons left-align"
+                 onClick={this.previousMovie}>fast_rewind</i>
+              <span className="center-align"><a onClick={this.nextMovie}>Meh</a>
+              <a onClick={this.nextMovie}>Seen it</a></span>
+              <i className="small material-icons right-align"
+                 onClick={this.nextMovie}>fast_forward</i>
             </div>
           </div>
         </div>
