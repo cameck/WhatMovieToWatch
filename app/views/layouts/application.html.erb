@@ -7,8 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <div class="container">
+    <div class="nav-wrapper">
+      <a href="<%= root_path %>" class="brand-logo">movieTo.Watch</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="<%= root_path %>">Pick a Genre</a></li>
+        <li><a href="<%= root_path %>">Sign Up</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+  </nav>
   <div class="container">
+
+
     <%= yield %>
   </div>
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        ©<%= Time.now.year %> - movieTo.Watch
+        <a class="grey-text text-lighten-4 right"
+        href="http://cameroneckelberry.com/"
+        target="_blank">A project by Cameron Eckelberry</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

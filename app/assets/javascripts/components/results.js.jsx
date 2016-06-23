@@ -33,8 +33,8 @@ var Results = React.createClass({
 
     return (
       <div className="row">
-      <h1>Watch This</h1>
-        <div className="col s12 m7">
+      <h1 className="center">Watch This</h1>
+        <div className="col s12 m8 offset-m2">
           <div className="card hoverable">
             <div className="card-image">
               <img src={"https://image.tmdb.org/t/p/original" + this.state.movies[this.state.i].backdrop_path.toString()} />
@@ -48,11 +48,11 @@ var Results = React.createClass({
               </p>
             </div>
             <div className="card-action">
-              <i className="small material-icons left-align"
+              <i className="small material-icons left"
                  onClick={this.previousMovie}>fast_rewind</i>
               <span className="center-align"><a onClick={this.nextMovie}>Meh</a>
               <a onClick={this.nextMovie}>Seen it</a></span>
-              <i className="small material-icons right-align"
+              <i className="small material-icons right"
                  onClick={this.nextMovie}>fast_forward</i>
             </div>
           </div>
