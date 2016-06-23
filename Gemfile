@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Make HTTP fun again
+gem 'httparty'
 # React for rails
 gem 'react-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
