@@ -19,55 +19,55 @@ var Movies = React.createClass({
         <a href="/movie/28/"
            className="waves-effect btn-large light-blue">Action</a>
 
-        <a onClick={() => this.search(12)} href="#!"
+        <a href="/movie/12/"
            className="waves-effect btn-large">Adventure</a>
 
-        <a onClick={() => this.search(16)} href="#!"
+        <a href="/movie/16/"
            className="waves-effect btn-large">Animation</a>
 
-        <a onClick={() => this.search(35)} href="#!"
+        <a href="/movie/35/"
            className="waves-effect btn-large">Comedy</a>
 
-        <a onClick={() => this.search(80)} href="#!"
+        <a href="/movie/80/"
            className="waves-effect btn-large">Crime</a>
 
-        <a onClick={() => this.search(18)} href="#!"
+        <a href="/movie/18/"
            className="waves-effect btn-large">Drama</a>
 
-        <a onClick={() => this.search(10751)} href="#!"
+        <a href="/movie/10751/"
            className="waves-effect btn-large">Family</a>
 
-        <a onClick={() => this.search(14)} href="#!"
+        <a href="/movie/14/"
            className="waves-effect btn-large">Fantasy</a>
 
-        <a onClick={() => this.search(10769)} href="#!"
+        <a href="/movie/10769/"
            className="waves-effect btn-large">Foreign</a>
 
-        <a onClick={() => this.search(36)} href="#!"
+        <a href="/movie/36/"
            className="waves-effect btn-large">History</a>
 
-        <a onClick={() => this.search(27)} href="#!"
+        <a href="/movie/27/"
            className="waves-effect btn-large">Horror</a>
 
-        <a onClick={() => this.search(10402)} href="#!"
+        <a href="/movie/10402/"
            className="waves-effect btn-large">Music</a>
 
-        <a onClick={() => this.search(9648)} href="#!"
+        <a href="/movie/9648/"
            className="waves-effect btn-large">Mystery</a>
 
-        <a onClick={() => this.search(10749)} href="#!"
+        <a href="/movie/10749/"
            className="waves-effect btn-large">Romance</a>
 
-        <a onClick={() => this.search(878)} href="#!"
+        <a href="/movie/878/"
            className="waves-effect btn-large">Science Fiction</a>
 
-        <a onClick={() => this.search(53)} href="#!"
+        <a href="/movie/53/"
            className="waves-effect btn-large">Thriller</a>
 
-        <a onClick={() => this.search(10752)} href="#!"
+        <a href="/movie/10752/"
            className="waves-effect btn-large">War</a>
 
-        <a onClick={() => this.search(37)} href="#!"
+        <a href="/movie/37/"
            className="waves-effect btn-large">Western</a>
 
       </div>
