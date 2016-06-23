@@ -1,13 +1,22 @@
 var Movies = React.createClass({
   search: function(id) {
     console.log(id);
+    var data = { genreID: id };
+
+    $.ajax({
+      method: 'GET',
+      url: '/movie/',
+      data: data,
+
+    });
+
   },
   render: function() {
     return (
       <div class="row">
-        <h1>What Genre Would you Like to watch?</h1>
+        <h1>Movie Genre?</h1>
 
-        <a onClick={() => this.search(28)} href="#!"
+        <a href="/movie/28/"
            className="waves-effect btn-large light-blue">Action</a>
 
         <a onClick={() => this.search(12)} href="#!"
@@ -58,7 +67,7 @@ var Movies = React.createClass({
         <a onClick={() => this.search(10752)} href="#!"
            className="waves-effect btn-large">War</a>
 
-        <a onClick={() => this.search(37)} href="#!" 
+        <a onClick={() => this.search(37)} href="#!"
            className="waves-effect btn-large">Western</a>
 
       </div>

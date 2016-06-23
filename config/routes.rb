@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-  resources :movies
+  resources :movie
   root 'movie#index'
 
   # Example of regular route:
