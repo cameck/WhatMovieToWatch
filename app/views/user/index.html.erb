@@ -1,2 +1,7 @@
-<h1>User#index</h1>
+<h1><%= current_user.name %></h1>
 <p>Find me in app/views/user/index.html.erb</p>
+
+
+<% @watchlist_items.each do |item|  %>
+<%= item.movie_title %>
+<% end %>
