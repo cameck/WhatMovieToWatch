@@ -36,7 +36,7 @@ var Results = React.createClass({
             <div className="card hoverable">
               <div className="card-image">
                 <img src={"https://image.tmdb.org/t/p/w780" + this.state.movies[this.state.i].backdrop_path.toString()} />
-                <span className="card-title">{this.state.movies[this.state.i].original_title.toString()}</span>
+                <span className="card-title">{this.state.movies[this.state.i].title.toString()}</span>
               </div>
               <div className="card-content">
                 <p>
