@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'watchlist_item/create'
+
+  get 'watchlist_item/destroy'
+
   get 'profile/', to: 'user#index', as: 'profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
