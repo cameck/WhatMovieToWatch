@@ -5,6 +5,7 @@ var Results = React.createClass({
       movies: this.props.movies,
       i: 0,
       watchListItems: this.props.watchListItems,
+      user_id: this.props.user_id
     };
   },
 
@@ -13,6 +14,7 @@ var Results = React.createClass({
       movies: [],
       i: 0,
       watchListItems: false,
+      user_id: null
     };
   },
 
@@ -53,6 +55,25 @@ var Results = React.createClass({
     )
   },
 
+  addToWatchList: function() {
+    var data = { movie_title: this.state.movies[this.state.i].title.toString(),
+                 poster: this.state.movies[this.state.i].backdrop_path.toString(),
+                 overview: this.state.movies[this.state.i].overview.toString(),
+                 user_id: this.state.user_id
+               };
+    $.ajax({
+      method: 'POST',
+      url: '/watchlist_item/create',
+      dataType: 'JSON',
+      data: { watchlist_item: data },
+      success: function() {
+        var watchlistItem = this.state.watchListItems;
+        watchlistItem.push(data);
+        this.setState(watchlistItem);
+      }.bind(this)
+    });
+  },
+
   render: function() {
 
     return (
@@ -72,11 +93,12 @@ var Results = React.createClass({
                 </p>
               </div>
               <div className="card-action">
-
                 <span className="center-align">
                   {this.state.i > 0 ? this.previousMovieButton() : null}
-                  <a><i className="small material-icons">playlist_add</i>
-                     Add to Watchlist</a>
+                  <a onClick={this.addToWatchList}>
+                    <i className="small material-icons">playlist_add</i>
+                     Add to Watchlist
+                  </a>
                   <a onClick={this.nextMovie}>Seen it</a>
                 </span>
                   {this.state.i <= 10 ? this.nextMovieButton() : null}

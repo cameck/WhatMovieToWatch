@@ -14,4 +14,10 @@ class WatchlistItemController < ApplicationController
     @watchlist_item.destroy
     head :no_content
   end
+
+  private
+
+    def watch_item_params
+      params.require(:watchlist_item).permit(:movie_title, :poster, :overview, :user_id)
+    end
 end

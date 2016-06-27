@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'watchlist_item/create'
+  post 'watchlist_item/create'
 
   get 'watchlist_item/destroy'
 
