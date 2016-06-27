@@ -1,7 +1,7 @@
 <h1><%= current_user.name %></h1>
 <p>Find me in app/views/user/index.html.erb</p>
 
-
+<img src="<%= current_user.profile_picture %>"/>
 <% @watchlist_items.each do |item|  %>
 <%= item.movie_title %>
 <% end %>
