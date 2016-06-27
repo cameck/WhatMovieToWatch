@@ -1,5 +1,8 @@
 class UserController < ApplicationController
   def index
-    @watchlist_items = current_user.watchlist_items
+    if !current_user
+      redirect_to root_path
+    end
+    @watchlist_items ||= current_user.watchlist_items
   end
 end

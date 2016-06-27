@@ -21,7 +21,8 @@
 //= require_tree .
 
 // Materialize initializations
-$( document ).ready(function(){
+$( document ).on('page:load', function(){
   $(".button-collapse").sideNav();
-  $(".dropdown-button").dropdown();
-})
+  $(".dropdown-button").dropdown({ hover: true,
+                                   belowOrigin: true });
+});
