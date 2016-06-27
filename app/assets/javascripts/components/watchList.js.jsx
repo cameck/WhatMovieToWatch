@@ -20,9 +20,25 @@ var WatchList = React.createClass({
       <span className="title">{movie.movie_title.toString()}</span>
       <p>
       </p>
-      <a href="#!" className="secondary-content">x</a>
+      <a onClick={() => this.deleteFromWatchList(movie.id)}
+         className="secondary-content" title="Remove From Watchlist">
+         x
+      </a>
     </li>
   )
+  },
+
+  deleteFromWatchList: (id) => {
+
+    $.ajax({
+      method: 'DELETE',
+      url: '/watchlist_item/' + id,
+      dataType: 'JSON',
+      success: function() {
+        
+
+      }.bind(this)
+    });
   },
 
   render: function() {

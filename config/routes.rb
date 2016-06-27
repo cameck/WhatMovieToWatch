@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post 'watchlist_item/create'
-
-  get 'watchlist_item/destroy'
+  resources :watchlist_item, only: [:destroy]
+  # delete 'watchlist_item/destroy/:id'
 
   get 'profile/', to: 'user#index', as: 'profile'
 

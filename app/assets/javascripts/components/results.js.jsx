@@ -68,6 +68,7 @@ var Results = React.createClass({
       data: { watchlist_item: data },
       success: function() {
         var watchlistItem = this.state.watchListItems;
+        data["id"] = Math.random() * (100 - 0) + 0;
         watchlistItem.push(data);
         this.setState(watchlistItem);
       }.bind(this)
