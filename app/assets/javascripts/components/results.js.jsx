@@ -86,8 +86,31 @@ var Results = React.createClass({
     this.setState({ watchListItems: movies });
   },
 
-  render: function() {
+  addToSeenList: function() {
+    var data = { movie_title: this.state.movies[this.state.i].title.toString(),
+                 poster: this.state.movies[this.state.i].backdrop_path.toString(),
+                 overview: this.state.movies[this.state.i].overview.toString(),
+                 user_id: this.state.user_id
+               };
+    $.ajax({
+      method: 'POST',
+      url: '/seen_movie/create',
+      dataType: 'JSON',
+      data: { seen_movie: data },
+      error: function() {
+        Materialize.toast("Whoops! That's already on the list", 3000, 'rounded');
+      },
+      success: function(data) {
+        this.nextMovie();
+      }.bind(this)
+    });
+  },
 
+  notSignedInAlert: function() {
+    Materialize.toast("You have to be signed in to do that", 3000, 'rounded');
+  },
+
+  render: function() {
     return (
       <div className="row">
         <h1>
@@ -114,11 +137,11 @@ var Results = React.createClass({
               <div className="card-action">
                 <span className="center-align">
                   {this.state.i > 0 ? this.previousMovieButton() : null}
-                  <a onClick={this.addToWatchList}>
+                  <a onClick={this.state.user_id ? this.addToWatchList : this.notSignedInAlert}>
                     <i className="small material-icons">playlist_add</i>
                     Add to Watchlist
                   </a>
-                  <a onClick={this.nextMovie}>
+                  <a onClick={this.state.user_id ? this.addToSeenList : this.notSignedInAlert}>
                     <i className="small material-icons">done</i>
                     Seen it
                   </a>

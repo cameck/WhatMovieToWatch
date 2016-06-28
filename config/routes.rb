@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'seen_movie/create'
+
+  resources :seen_movie, only: [:destroy]
+
   post 'watchlist_item/create'
   resources :watchlist_item, only: [:destroy]
   # delete 'watchlist_item/destroy/:id'
