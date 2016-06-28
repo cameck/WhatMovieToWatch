@@ -77,6 +77,13 @@ var Results = React.createClass({
     });
   },
 
+  deleteWatchItem: function(movie) {
+    var index = this.state.watchListItems.indexOf(movie);
+    var movies = this.state.watchListItems;
+    movies.splice(index, 1);
+    this.setState({ watchListItems: movies });
+  },
+
   render: function() {
 
     return (
@@ -108,7 +115,7 @@ var Results = React.createClass({
              </div>
           </div>
         </div>
-        {this.state.watchListItems ? <WatchList watchListItems={this.props.watchListItems}/> : this.noWatchList()}
+        {this.state.watchListItems ? <WatchList watchListItems={this.props.watchListItems} handleDeleteWatchItem={this.deleteWatchItem}/> : this.noWatchList()}
       </div>
     )
   }

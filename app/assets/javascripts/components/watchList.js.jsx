@@ -1,17 +1,5 @@
 var WatchList = React.createClass({
 
-  getInitialState: function() {
-    return {
-      watchListItems: this.props.watchListItems
-    };
-  },
-
-  getDefaultProps: function() {
-    return {
-      watchListItems: false
-    };
-  },
-
   returnWatchList: function(movie) {
     return (
     <li className="collection-item avatar hoverable" key={movie.id}>
@@ -20,7 +8,7 @@ var WatchList = React.createClass({
       <span className="title">{movie.movie_title.toString()}</span>
       <p>
       </p>
-      <a onClick={() => this.deleteFromWatchList(movie.id)}
+      <a onClick={() => this.deleteFromWatchList(movie)}
          className="secondary-content" title="Remove From Watchlist">
          x
       </a>
@@ -28,15 +16,14 @@ var WatchList = React.createClass({
   )
   },
 
-  deleteFromWatchList: (id) => {
+  deleteFromWatchList: function(movie) {
 
     $.ajax({
       method: 'DELETE',
-      url: '/watchlist_item/' + id,
+      url: '/watchlist_item/' + movie.id,
       dataType: 'JSON',
       success: function() {
-
-
+        this.props.handleDeleteWatchItem(movie)
       }.bind(this)
     });
   },
@@ -47,7 +34,7 @@ var WatchList = React.createClass({
       <h3>WatchList</h3>
 
         <ul className="collection">
-          { this.state.watchListItems.map(this.returnWatchList) }
+          { this.props.watchListItems.map(this.returnWatchList) }
         </ul>
       </div>
     )
