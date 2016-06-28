@@ -32,7 +32,7 @@ var WatchList = React.createClass({
   render: function() {
     return (
       <div className="col m5 s12">
-      <h3>Watchlist</h3>
+      <h3 className="results-watch-title">Watchlist</h3>
 
         <ul className="collection">
           { this.props.watchListItems.map(this.returnWatchList) }

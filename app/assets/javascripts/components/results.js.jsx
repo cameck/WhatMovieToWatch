@@ -75,6 +75,7 @@ var Results = React.createClass({
         var watchlistItem = this.state.watchListItems;
         watchlistItem.push(data);
         this.setState(watchlistItem);
+        this.nextMovie();
       }.bind(this)
     });
   },
