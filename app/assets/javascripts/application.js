@@ -32,4 +32,10 @@ $( document ).on('page:load', function(){
 $( document ).ready(function(){
   // mobile sidenav
   $('.button-collapse').sideNav();
+
+  // Add Truncate to strings
+  String.prototype.trunc =
+      function(n){
+          return this.substr(0,n-1) + ( this.length > n ? '…' : '' );
+      };
 });
