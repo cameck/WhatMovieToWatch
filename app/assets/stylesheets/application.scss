@@ -54,13 +54,6 @@ main {
   flex: 1 0 auto;
 }
 
-// footer {
-//   position: fixed;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-// }
-
 .card-action {
   text-align: center;
 
@@ -76,4 +69,15 @@ main {
 
 .valign {
   margin: 50vh 0;
+}
+
+.collection-item .secondary-content {
+  cursor: pointer;
+}
+
+#toast-container {
+  top: auto;
+  right: auto;
+  bottom: 10%;
+  left:7%;
 }
