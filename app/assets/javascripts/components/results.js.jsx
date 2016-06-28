@@ -69,9 +69,8 @@ var Results = React.createClass({
       error: function() {
         Materialize.toast("Whoops! That's already on the list", 3000, 'rounded');
       },
-      success: function() {
+      success: function(data) {
         var watchlistItem = this.state.watchListItems;
-        data["id"] = Math.random() * (100 - 0) + 0;
         watchlistItem.push(data);
         this.setState(watchlistItem);
       }.bind(this)
