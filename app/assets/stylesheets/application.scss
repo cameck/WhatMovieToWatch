@@ -73,8 +73,12 @@ main {
   margin: 50vh 0;
 }
 
-.collection-item .secondary-content {
+.collection-item {
+
+  .secondary-content,
+  a {
   cursor: pointer;
+}
 }
 
 #toast-container {

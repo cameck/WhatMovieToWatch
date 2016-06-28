@@ -7,6 +7,7 @@ var Results = React.createClass({
       watchListItems: this.props.watchListItems,
       user_id: this.props.user_id,
       genre: this.props.genre,
+      seenMovies: this.props.seenMovies,
     };
   },
 
@@ -17,11 +18,12 @@ var Results = React.createClass({
       watchListItems: false,
       user_id: null,
       genre: "Great",
+      seenMovies: null,
     };
   },
 
   nextMovie: function() {
-    if (this.state.i < 10) {
+    if ( this.state.i < (this.state.movies.length - 1) ) {
       var i = this.state.i + 1;
       this.setState({ i: i });
     }
@@ -111,6 +113,10 @@ var Results = React.createClass({
     Materialize.toast("You have to be signed in to do that", 3000, 'rounded');
   },
 
+  filterSeenMovies: function() {
+    this.state.movies[this.state.i].title
+  },
+
   render: function() {
     return (
       <div className="row">
@@ -147,7 +153,7 @@ var Results = React.createClass({
                     Seen it
                   </a>
                 </span>
-                  {this.state.i < 10 ? this.nextMovieButton() : null}
+                  {this.state.i < (this.state.movies.length - 1) ? this.nextMovieButton() : null}
              </div>
           </div>
         </div>
