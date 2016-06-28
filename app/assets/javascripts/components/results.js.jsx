@@ -5,7 +5,8 @@ var Results = React.createClass({
       movies: this.props.movies,
       i: 0,
       watchListItems: this.props.watchListItems,
-      user_id: this.props.user_id
+      user_id: this.props.user_id,
+      genre: this.props.genre,
     };
   },
 
@@ -14,7 +15,8 @@ var Results = React.createClass({
       movies: [],
       i: 0,
       watchListItems: false,
-      user_id: null
+      user_id: null,
+      genre: "Great",
     };
   },
 
@@ -88,7 +90,14 @@ var Results = React.createClass({
 
     return (
       <div className="row">
-        <h1>Watch This</h1>
+        <h1>
+          Watch This  Movie
+          <span className="chip right">
+            {this.state.genre + " "}
+            <i className="fa fa-film" aria-hidden="true"></i>
+          </span>
+        </h1>
+
           <div className="col s12 m7">
             <div className="card">
               <div className="card-image">
@@ -115,7 +124,10 @@ var Results = React.createClass({
              </div>
           </div>
         </div>
-        {this.state.watchListItems ? <WatchList watchListItems={this.props.watchListItems} handleDeleteWatchItem={this.deleteWatchItem}/> : this.noWatchList()}
+
+        {this.state.watchListItems ? <WatchList watchListItems={this.props.watchListItems}
+                                                handleDeleteWatchItem={this.deleteWatchItem}/>
+                                   : this.noWatchList()}
       </div>
     )
   }
