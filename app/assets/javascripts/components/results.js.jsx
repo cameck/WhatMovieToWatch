@@ -91,7 +91,7 @@ var Results = React.createClass({
     return (
       <div className="row">
         <h1>
-          Watch This  Movie
+          Watch This Movie
           <span className="chip right">
             {this.state.genre + " "}
             <i className="fa fa-film" aria-hidden="true"></i>
@@ -116,11 +116,14 @@ var Results = React.createClass({
                   {this.state.i > 0 ? this.previousMovieButton() : null}
                   <a onClick={this.addToWatchList}>
                     <i className="small material-icons">playlist_add</i>
-                     Add to Watchlist
+                    Add to Watchlist
                   </a>
-                  <a onClick={this.nextMovie}>Seen it</a>
+                  <a onClick={this.nextMovie}>
+                    <i className="small material-icons">done</i>
+                    Seen it
+                  </a>
                 </span>
-                  {this.state.i <= 10 ? this.nextMovieButton() : null}
+                  {this.state.i < 10 ? this.nextMovieButton() : null}
              </div>
           </div>
         </div>

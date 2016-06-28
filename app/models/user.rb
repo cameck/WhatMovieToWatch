@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
     end
   end
   has_many :watchlist_items
+  has_many :seen_movies
 end

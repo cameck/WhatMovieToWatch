@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626215805) do
+ActiveRecord::Schema.define(version: 20160628171206) do
+
+  create_table "seen_movies", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "movie_title"
+    t.string   "overview"
+    t.string   "poster"
+    t.integer  "user_id"
+  end
+
+  add_index "seen_movies", ["user_id"], name: "index_seen_movies_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
