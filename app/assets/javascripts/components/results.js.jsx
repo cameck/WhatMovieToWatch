@@ -66,6 +66,9 @@ var Results = React.createClass({
       url: '/watchlist_item/create',
       dataType: 'JSON',
       data: { watchlist_item: data },
+      error: function() {
+        Materialize.toast("Whoops! That's already on the list", 3000, 'rounded');
+      },
       success: function() {
         var watchlistItem = this.state.watchListItems;
         data["id"] = Math.random() * (100 - 0) + 0;
@@ -80,8 +83,8 @@ var Results = React.createClass({
     return (
       <div className="row">
         <h1>Watch This</h1>
-          <div className="col s11 m7">
-            <div className="card hoverable">
+          <div className="col s12 m7">
+            <div className="card">
               <div className="card-image">
                 <img src={"https://image.tmdb.org/t/p/w780" + this.state.movies[this.state.i].backdrop_path.toString()} />
                 <span className="card-title">{this.state.movies[this.state.i].title.toString()}</span>

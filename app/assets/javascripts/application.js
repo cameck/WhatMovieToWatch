@@ -22,7 +22,14 @@
 
 // Materialize initializations
 $( document ).on('page:load', function(){
-  $(".button-collapse").sideNav();
+  // desktop dropdown menu
   $(".dropdown-button").dropdown({ hover: true,
                                    belowOrigin: true });
+  // mobile sidenav
+  $('.button-collapse').sideNav();
+});
+
+$( document ).ready(function(){
+  // mobile sidenav
+  $('.button-collapse').sideNav();
 });

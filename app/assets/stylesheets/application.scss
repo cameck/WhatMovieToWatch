@@ -44,18 +44,22 @@ $primary-color: color("blue", "lighten-2") !default;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+
+  .container {
+    min-height: 85vh;
+  }
 }
 
 main {
   flex: 1 0 auto;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+// footer {
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+// }
 
 .card-action {
   text-align: center;

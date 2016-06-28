@@ -14,7 +14,7 @@ var WatchList = React.createClass({
 
   returnWatchList: function(movie) {
     return (
-    <li className="collection-item avatar" key={movie.id}>
+    <li className="collection-item avatar hoverable" key={movie.id}>
       <img src={"https://image.tmdb.org/t/p/w154/" + movie.poster.toString()}
            alt={"Movie Poster of " + movie.movie_title.toString()}  className="circle" />
       <span className="title">{movie.movie_title.toString()}</span>
@@ -35,7 +35,7 @@ var WatchList = React.createClass({
       url: '/watchlist_item/' + id,
       dataType: 'JSON',
       success: function() {
-        
+
 
       }.bind(this)
     });
@@ -43,7 +43,7 @@ var WatchList = React.createClass({
 
   render: function() {
     return (
-      <div className="col m4 s1">
+      <div className="col m5 s12">
       <h3>WatchList</h3>
 
         <ul className="collection">
