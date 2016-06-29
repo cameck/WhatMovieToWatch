@@ -113,12 +113,6 @@ var Results = React.createClass({
     Materialize.toast("You have to be signed in to do that", 3000, 'rounded');
   },
 
-  // filterSeenMovies: function(obj) {
-  //
-  //   console.log(obj.id );
-  //
-  // },
-
   render: function() {
     return (
       <div className="row">
@@ -137,10 +131,9 @@ var Results = React.createClass({
                 <span className="card-title">{this.state.movies[this.state.i].title.toString()}</span>
               </div>
               <div className="card-content">
+                <Stars movies={this.state.movies} i={this.state.i}/>
                 <p>
                   {this.state.movies[this.state.i].overview.toString()}
-                  <span><i className="small material-icons">thumbs_up_down</i>
-                    {this.state.movies[this.state.i].vote_average.toString()}/10 </span>
                 </p>
               </div>
               <div className="card-action">
@@ -160,7 +153,7 @@ var Results = React.createClass({
           </div>
         </div>
 
-        {this.state.watchListItems ? <WatchList watchListItems={this.props.watchListItems}
+        {this.state.watchListItems ? <WatchList watchListItems={this.state.watchListItems}
                                                 handleDeleteWatchItem={this.deleteWatchItem}/>
                                    : this.noWatchList()}
       </div>
