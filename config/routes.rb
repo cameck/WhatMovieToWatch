@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   post 'watchlist_item/create'
   resources :watchlist_item, only: [:destroy]
-  # delete 'watchlist_item/destroy/:id'
+  
 
   get 'profile/', to: 'user#index', as: 'profile'
-
+  get 'watchlist/:id', to: 'user#watch_list'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

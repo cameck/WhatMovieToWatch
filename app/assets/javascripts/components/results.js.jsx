@@ -7,6 +7,7 @@ var Results = React.createClass({
       watchListItems: this.props.watchListItems,
       user_id: this.props.user_id,
       genre: this.props.genre,
+      fbId: this.props.fbId
     };
   },
 
@@ -17,6 +18,7 @@ var Results = React.createClass({
       watchListItems: false,
       user_id: null,
       genre: "Great",
+      fbId: null
     };
   },
 
@@ -157,7 +159,8 @@ var Results = React.createClass({
         </div>
 
         {this.state.watchListItems ? <WatchList watchListItems={this.state.watchListItems}
-                                                handleDeleteWatchItem={this.deleteWatchItem}/>
+                                                handleDeleteWatchItem={this.deleteWatchItem}
+                                                facebookId={this.props.fbId}/>
                                    : this.noWatchList()}
       </div>
     )

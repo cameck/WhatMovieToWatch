@@ -29,11 +29,26 @@ var WatchList = React.createClass({
     });
   },
 
+  share:  function() {
+    FB.ui({
+      method: 'share',
+      display: 'popup',
+      href: window.location.host + '/watchlist/' + this.props.facebookId,
+      }, function(response){});
+  },
+
   render: function() {
+    var headingStyle = {
+      display: "inline"
+    };
+
     return (
       <div className="col m5 s12">
-      <h3 className="results-watch-title">Watchlist</h3>
-
+        <h3 className="results-watch-title" style={headingStyle}>Watchlist</h3>
+        <div id="shareBtn" onClick={this.share} className="right">
+          <a className="waves-effect waves-light btn">
+            <i className="fa fa-facebook-square right" aria-hidden="true"></i>Share on </a>
+        </div>
         <ul className="collection">
           { this.props.watchListItems.map(this.returnWatchList) }
         </ul>

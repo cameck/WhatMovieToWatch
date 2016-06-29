@@ -1,0 +1,11 @@
+
+
+<div class="row">
+  <div class="col s12 center">
+    <h1>
+      <img src="<%= @profile_pic %>" class="circle" alt="<%= @user_name %>'s profile picture">
+      <%= @user_name %>
+    </h1>
+  </div>
+</div>
+<%= react_component 'sharableMovieList', { watchListItems: @public_watchlist_items } %>

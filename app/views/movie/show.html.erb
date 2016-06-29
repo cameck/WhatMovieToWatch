@@ -1,8 +1,12 @@
-<% user_id = current_user.id if current_user  %>
+<% if current_user  %>
+  <% user_id = current_user.id %>
+  <% fb_id = current_user.uid  %>
+<% end  %>  
 <%=
   react_component 'Results', { movies: @movie_results,
                                watchListItems: @watchlist_items,
                                user_id: user_id,
+                               fbId: fb_id,
                                genre: @genre,
                              }
 %>
