@@ -5,6 +5,7 @@ var ProfileMovieList = React.createClass({
       watchListItems: this.props.watchListItems,
       user_id: this.props.user_id,
       seenMovies: this.props.seenMovies,
+      fbId: this.props.fbId
     };
   },
 
@@ -13,6 +14,7 @@ var ProfileMovieList = React.createClass({
       watchListItems: false,
       user_id: null,
       seenMovies: false,
+      fbId: null
     };
   },
 
@@ -115,14 +117,19 @@ var ProfileMovieList = React.createClass({
       <div className="row">
         <div className="col m6 s12">
         <h3>Watchlist</h3>
+        <h6>
+          <a href={"http://" + window.location.host + '/watchlist/' + this.props.fbId}>
+            Find Your Sharable Link here <i className="fa fa-share" aria-hidden="true"></i>
 
+          </a>
+        </h6>
           <ul className="collection">
             { this.state.watchListItems.map(this.returnWatchlist) }
           </ul>
         </div>
         <div className="col m6 s12">
         <h3>Seen Movies</h3>
-
+        <h6>There's some goodies here 😉</h6>
           <ul className="collection">
             { this.state.seenMovies.map(this.returnSeenMovies) }
           </ul>
