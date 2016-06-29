@@ -7,7 +7,7 @@ var Results = React.createClass({
       watchListItems: this.props.watchListItems,
       user_id: this.props.user_id,
       genre: this.props.genre,
-      seenMovies: this.props.seenMovies,
+      // seenMovies: this.props.seenMovies,
     };
   },
 
@@ -113,9 +113,11 @@ var Results = React.createClass({
     Materialize.toast("You have to be signed in to do that", 3000, 'rounded');
   },
 
-  filterSeenMovies: function() {
-    this.state.movies[this.state.i].title
-  },
+  // filterSeenMovies: function(obj) {
+  //
+  //   console.log(obj.id );
+  //
+  // },
 
   render: function() {
     return (
