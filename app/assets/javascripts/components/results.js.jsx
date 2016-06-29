@@ -7,7 +7,6 @@ var Results = React.createClass({
       watchListItems: this.props.watchListItems,
       user_id: this.props.user_id,
       genre: this.props.genre,
-      // seenMovies: this.props.seenMovies,
     };
   },
 
@@ -18,7 +17,6 @@ var Results = React.createClass({
       watchListItems: false,
       user_id: null,
       genre: "Great",
-      seenMovies: null,
     };
   },
 
@@ -104,6 +102,11 @@ var Results = React.createClass({
         Materialize.toast("Whoops! That's already on the list", 3000, 'rounded');
       },
       success: function(data) {
+        var index = this.state.i;
+        var movies = this.state.movies;
+
+        movies.splice(index, 1);
+        this.setState({ movies: movies });
         this.nextMovie();
       }.bind(this)
     });
