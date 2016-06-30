@@ -22,4 +22,7 @@ class MovieController < ApplicationController
       @movie_results.delete_if {|h| seen_movie_titles.include? h["title"]}
     end
   end
+
+  def about
+  end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   post 'watchlist_item/create'
   resources :watchlist_item, only: [:destroy]
-  
+
 
   get 'profile/', to: 'user#index', as: 'profile'
   get 'watchlist/:id', to: 'user#watch_list'
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :movie
   root 'movie#index'
+  get 'about/', to: 'movie#about', as: 'about'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
