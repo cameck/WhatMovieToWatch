@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160628171206) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "seen_movies", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160628171206) do
     t.integer  "user_id"
   end
 
-  add_index "seen_movies", ["user_id"], name: "index_seen_movies_on_user_id"
+  add_index "seen_movies", ["user_id"], name: "index_seen_movies_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
@@ -44,6 +47,8 @@ ActiveRecord::Schema.define(version: 20160628171206) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "watchlist_items", ["user_id"], name: "index_watchlist_items_on_user_id"
+  add_index "watchlist_items", ["user_id"], name: "index_watchlist_items_on_user_id", using: :btree
 
+  add_foreign_key "seen_movies", "users"
+  add_foreign_key "watchlist_items", "users"
 end
