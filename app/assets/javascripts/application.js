@@ -37,4 +37,22 @@ $( document ).ready(function(){
       function(n){
           return this.substr(0,n-1) + ( this.length > n ? '…' : '' );
       };
+
+  // Facebook configs
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '551107808409493',
+      status     : true,
+      xfbml      : true,
+      version    : 'v2.4' // or v2.0, v2.1, v2.2, v2.3
+    });
+  };
+
+  (function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
 });

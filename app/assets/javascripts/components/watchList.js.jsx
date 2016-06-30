@@ -31,7 +31,6 @@ var WatchList = React.createClass({
 
   share:  function() {
     FB.ui({
-      app_id: 551107808409493,
       method: 'share',
       display: 'popup',
       href: 'http://' + window.location.host + '/watchlist/' + this.props.facebookId,
