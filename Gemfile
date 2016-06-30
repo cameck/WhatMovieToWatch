@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 # Use postgreSQL as the database for Active Record
 gem 'pg'
+gem 'puma'
 # Login with Facebook
 gem 'omniauth-facebook'
 # Font Awesome
