@@ -22,7 +22,7 @@ var Movies = React.createClass({
         <a href={"/movie/" + key}>
         <div className="card">
           <div className="card-image">
-            <img src={this.state.root + "assets/" + imageSrc + '.jpg'} />
+            <img src={"https://s3-us-west-2.amazonaws.com/moviewatchimages/" + imageSrc + '.jpg'} />
             <span className="card-title">{this.state.genres[key]}</span>
           </div>
         </div>
