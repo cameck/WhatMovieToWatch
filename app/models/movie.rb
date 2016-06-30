@@ -5,8 +5,8 @@ class Movie
     JSON.parse(movie_results.body)
   end
 
-  def self.get_genre(id)
-    genres = {
+  def self.genres
+    return genres = {
       28 => "Action",
       12 => "Adventure",
       16 => "Animation",
@@ -28,7 +28,10 @@ class Movie
       10752 => "War",
       37 => "Western",
     }
+  end
 
+  def self.find_genre(id)
+    genres = Movie.genres
     genres[id.to_i]
   end
 end
