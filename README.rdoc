@@ -1,3 +1,5 @@
 == movieTo.Watch
 
-An app that attempts to answer the age-old question, "What movie do we watch?"
+An app that attempts to answer the age-old question, "What movie do we watch?".
+
+Coming Soon: http://movieTo.Watch
