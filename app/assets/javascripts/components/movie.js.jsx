@@ -3,12 +3,14 @@ var Movies = React.createClass({
   getInitialState: function() {
     return {
       genres: this.props.genres,
+      root: this.props.root
     };
   },
 
   getDefaultProps: function() {
     return {
-      genres: []
+      genres: [],
+      root: "http://movieto.watch/"
     };
   },
 
@@ -16,11 +18,11 @@ var Movies = React.createClass({
 
     var imageSrc = this.state.genres[key].replace(/\s+/g, '');
     return (
-      <div className="col s12 m3 l2">
-        <a href={"/movie/" + key} key={key}>
+      <div className="col s12 m3 l2"  key={key}>
+        <a href={"/movie/" + key}>
         <div className="card">
           <div className="card-image">
-            <img src={"http://localhost:3000/assets/" + imageSrc + '.jpg'} />
+            <img src={this.state.root + "assets/" + imageSrc + '.jpg'} />
             <span className="card-title">{this.state.genres[key]}</span>
           </div>
         </div>
