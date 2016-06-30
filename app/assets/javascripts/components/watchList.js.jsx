@@ -44,10 +44,16 @@ var WatchList = React.createClass({
 
     return (
       <div className="col m5 s12">
-        <h3 className="results-watch-title" style={headingStyle}>Watchlist</h3>
-        <div id="shareBtn" onClick={this.share} className="right">
-          <a className="waves-effect waves-light btn">
-            <i className="fa fa-facebook-square right" aria-hidden="true"></i>Share on </a>
+        <div className="row">
+          <div className="col m6 s6">
+            <h3 className="results-watch-title" >Watchlist</h3>
+          </div>
+          <div className="col m6 s6">
+            <div id="shareBtn" onClick={this.share} className="right">
+              <a className="waves-effect waves-light btn">
+                <i className="fa fa-facebook-square right" aria-hidden="true"></i>Share on </a>
+            </div>
+          </div>
         </div>
         <ul className="collection">
           { this.props.watchListItems.map(this.returnWatchList) }
