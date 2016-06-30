@@ -109,7 +109,6 @@ var Results = React.createClass({
 
         movies.splice(index, 1);
         this.setState({ movies: movies });
-        this.nextMovie();
       }.bind(this)
     });
   },

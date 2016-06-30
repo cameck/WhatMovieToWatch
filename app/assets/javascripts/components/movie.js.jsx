@@ -14,11 +14,11 @@ var Movies = React.createClass({
     };
   },
 
-  returnGenres: function(key) {
+  returnGenres: function(key, index) {
 
     var imageSrc = this.state.genres[key].replace(/\s+/g, '');
     return (
-      <div className="col s12 m3 l2"  key={key}>
+      <div className="col s12 m3"  key={key}>
         <a href={"/movie/" + key}>
         <div className="card">
           <div className="card-image">
