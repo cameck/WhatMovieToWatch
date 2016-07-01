@@ -10,7 +10,7 @@ class SeenMovieController < ApplicationController
   end
 
   def destroy
-    @seen_movie = SeenMovie.find(seen_movie_params)
+    @seen_movie = SeenMovie.find(params[:id])
     @seen_movie.destroy
     head :no_content
   end
