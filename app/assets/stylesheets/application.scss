@@ -139,3 +139,27 @@ main {
 #about-link {
   color: rgba(255, 255, 255, 0.8);
 }
+
+// Mobile stuff
+@media only screen and (max-width: 736px) {
+  .watchlist-text {
+    display: none;
+  }
+  .watchlist-link {
+    margin-right: 0 !important;
+  }
+  .responsize-header {
+    font-size: 3rem;
+  }
+  .responsive-image {
+    width: 100%;
+    height: auto;
+  }
+  #votes {
+    display: flex;
+  }
+}
+
+.responsive-image {
+  width: 25%;
+}

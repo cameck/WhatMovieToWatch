@@ -30,15 +30,18 @@ var Results = React.createClass({
   },
 
   previousMovie: function() {
-      var i = this.state.i - 1;
-      this.setState({ i: i });
+    var i = this.state.i - 1;
+    this.setState({ i: i });
   },
 
   previousMovieButton: function() {
-      return (
-        <i className="small material-icons left"
-          onClick={this.previousMovie}>fast_rewind</i>
-      )
+    var hidden = {
+      visibility: "hidden"
+    };
+    return (
+      <i className="small material-icons left" style={this.state.i == 0 ? hidden : null} 
+        onClick={this.previousMovie}>fast_rewind</i>
+    )
   },
 
   nextMovieButton: function() {
@@ -50,7 +53,7 @@ var Results = React.createClass({
 
   noWatchList: function() {
     return (
-      <div className="col m4 s1">
+      <div className="col m4 s12">
         <h3>WatchList</h3>
         <a href="/auth/facebook">
           <h5>Sign up to Use This Feature</h5>
@@ -120,7 +123,7 @@ var Results = React.createClass({
   render: function() {
     return (
       <div className="row">
-        <h1>
+        <h1 className="responsize-header">
           Watch This Movie
           <span className="chip right">
             {this.state.genre + " "}
@@ -141,13 +144,15 @@ var Results = React.createClass({
                 </p>
               </div>
               <div className="card-action">
+
+                {this.previousMovieButton()}
                 <span className="center-align">
-                  {this.state.i > 0 ? this.previousMovieButton() : null}
                   <a onClick={this.state.user_id ? this.addToWatchList : this.notSignedInAlert}>
                     <i className="small material-icons">playlist_add</i>
-                    Add to Watchlist
+                    <span className="watchlist-text">Add to Watchlist</span>
                   </a>
-                  <a onClick={this.state.user_id ? this.addToSeenList : this.notSignedInAlert}>
+                  <a onClick={this.state.user_id ? this.addToSeenList : this.notSignedInAlert}
+                     className="watchlist-link">
                     <i className="small material-icons">done</i>
                     Seen it
                   </a>
