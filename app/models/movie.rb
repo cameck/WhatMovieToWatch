@@ -12,7 +12,6 @@ class Movie
       16 => "Animation",
       35 => "Comedy",
       80 => "Crime",
-      99 => "Documentary",
       18 => "Drama",
       10751 => "Family",
       14 => "Fantasy",

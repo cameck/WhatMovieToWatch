@@ -39,7 +39,7 @@ var Results = React.createClass({
       visibility: "hidden"
     };
     return (
-      <i className="small material-icons left" style={this.state.i == 0 ? hidden : null} 
+      <i className="small material-icons left" style={this.state.i == 0 ? hidden : null}
         onClick={this.previousMovie}>fast_rewind</i>
     )
   },
