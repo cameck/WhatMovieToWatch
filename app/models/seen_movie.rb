@@ -1,4 +1,4 @@
 class SeenMovie < ActiveRecord::Base
-  validates :movie_title, uniqueness: true
+  validates_uniqueness_of :movie_title, scope: :user_id
   belongs_to :user
 end
