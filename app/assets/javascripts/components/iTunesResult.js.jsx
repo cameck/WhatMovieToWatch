@@ -21,7 +21,7 @@ var ITunesResult = React.createClass({
       global: true,
 
       error: function() {
-        console.log("If you're looking, not all the latest iTunes data came through :/");
+        console.log("If you're looking, an API call failed :/");
       },
       success: function(data) {
 
@@ -35,18 +35,39 @@ var ITunesResult = React.createClass({
           moviesFromItunes[movieTitlePrice] = moviePrice;
           moviesFromItunes[movieTitleLink] = data["results"][0].trackViewUrl + "&at=1000lomC";
           this.setState(moviesFromItunes);
-         }
-       }.bind(this)
-     });
- },
-  showITunesLink: function() {
-    var moviePrice = this.props.movies[this.props.i].title.toString() + "Price";
-    return this.state.iTunesMovies[moviePrice];
 
+        }
+      }.bind(this)
+    });
+  },
+
+  getITunesLink: function() {
+    var movieLink = this.props.movies[this.props.i].title.toString() + "Link";
+    return this.state.iTunesMovies[movieLink];
+  },
+
+  isPreorder: function() {
+    var moviePrice = this.props.movies[this.props.i].title.toString() + "Price";
+    return this.state.iTunesMovies[moviePrice] == "Preorder";
   },
   render: function() {
+    var iTunesButton;
+    if (this.getITunesLink()) {
+      iTunesButton = this.isPreorder() ? <PreorderOnITunesLogo /> : <GetItOnITunesLogo />;
+    } else {
+      iTunesButton = null;
+    }
+
+    var divStyle = {
+      paddingTop: "10px",
+    };
+
     return (
-    <div><p>{this.state.iTunesMovies[this.props.movies[this.props.i].title.toString() + "Price"]}</p></div>
+    <div style={divStyle}>
+      <a href={this.getITunesLink()} target="_blank">
+        {iTunesButton}
+      </a>
+    </div>
   )
   }
 
