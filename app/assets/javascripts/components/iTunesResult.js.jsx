@@ -5,7 +5,15 @@ var ITunesResult = React.createClass({
     };
   },
 
-  findITunesMovies: function(movieURLSafe, movieTitle, iTunesMovies) {
+  componentDidMount: function() {
+    for (var i=0; i < this.props.movies.length; i++) {
+      var movieURLSafe = this.props.movies[i].title.replace(/ /g, "+");
+      var movieTitle = this.props.movies[i].title;
+      this.findITunesMovies(movieURLSafe, movieTitle);
+    }
+  },
+
+  findITunesMovies: function(movieURLSafe, movieTitle) {
     $.ajax({
       method: 'GET',
       url: "https://itunes.apple.com/search?term=" + movieURLSafe + "&media=movie&limit=1",
@@ -13,83 +21,32 @@ var ITunesResult = React.createClass({
       global: true,
 
       error: function() {
-        Materialize.toast("Sorry! We weren't able to get all the latest for you!", 3000, 'rounded');
+        console.log("If you're looking, not all the latest iTunes data came through :/");
       },
       success: function(data) {
 
         if (data["results"][0]) {
-          console.log(data["results"][0]);
-          var moviePrice = data["results"][0].collectionPrice ? movieTitle + "Price" : "Preorder";
+          // Store link to iTunes Store and price - If there is no price that means
+          // it's only avaliable for preorder
+          var moviePrice = data["results"][0].collectionPrice ? data["results"][0].collectionPrice : "Preorder";
           var movieTitleLink = movieTitle + "Link";
           var movieTitlePrice = movieTitle + "Price";
-
-          iTunesMovies[movieTitlePrice] = moviePrice;
-          iTunesMovies[movieTitleLink] = data["results"][0].trackViewUrl + "&at=1000lomC";
-        }
-      }.bind(this)
-    });
-  },
-
-  componentDidMount: function() {
-    var iTunesMovies = {};
-    var iTunesAjaxCalls = [];
-    for (var i=0; i < this.props.movies.length; i++) {
-      var movieURLSafe = this.props.movies[i].title.replace(/ /g, "+");
-      var movieTitle = this.props.movies[i].title;
-      // eval('var fetch' + i + " = [this.findITunesMovies(" +
-      //    movieURLSafe + "," + movieTitle + "," + iTunesMovies + ")]")
-
-      // iTunesAjaxCalls.push(() => this.findITunesMovies(movieURLSafe, movieTitle, iTunesMovies))
-      iTunesAjaxCalls.push($.ajax({
-            method: 'GET',
-            url: "https://itunes.apple.com/search?term=" + movieURLSafe + "&media=movie&limit=1",
-            dataType: 'JSONP',
-            global: true,
-
-            error: function() {
-              Materialize.toast("Sorry! We weren't able to get all the latest for you!", 3000, 'rounded');
-            },
-            success: function(data) {
-
-              if (data["results"][0]) {
-                console.log(data["results"][0]);
-                var moviePrice = data["results"][0].collectionPrice ? movieTitle + "Price" : "Preorder";
-                var movieTitleLink = movieTitle + "Link";
-                var movieTitlePrice = movieTitle + "Price";
-
-                iTunesMovies[movieTitlePrice] = moviePrice;
-                iTunesMovies[movieTitleLink] = data["results"][0].trackViewUrl + "&at=1000lomC";
-              }
-            }
-          }));
-    }
-
-    $.when.apply(undefined, iTunesAjaxCalls).done(
-      function(){
-        console.log("DONE! " + iTunesMovies)
-      }
-    )
-    // (function(){
-    //   var counter = 0;
-    //   $.each( iTunesAjaxCalls, function( i, ajaxCall ) {
-    //       console.log("YO in the closure" +i + ajaxCall);
-    //        $.when($, ajaxCall()).done( function(){
-    //          counter++;
-    //          if (counter >= iTunesAjaxCalls.length){
-    //           console.log(counter + " " + iTunesAjaxCalls.length)
-    //          }
-    //
-    //        });
-    //
-    //     });
-    //
-    // })();
-
+          var moviesFromItunes = this.state.iTunesMovies;
+          moviesFromItunes[movieTitlePrice] = moviePrice;
+          moviesFromItunes[movieTitleLink] = data["results"][0].trackViewUrl + "&at=1000lomC";
+          this.setState(moviesFromItunes);
+         }
+       }.bind(this)
+     });
+ },
+  showITunesLink: function() {
+    var moviePrice = this.props.movies[this.props.i].title.toString() + "Price";
+    return this.state.iTunesMovies[moviePrice];
 
   },
   render: function() {
     return (
-    <div><p>YOLO</p></div>
+    <div><p>{this.state.iTunesMovies[this.props.movies[this.props.i].title.toString() + "Price"]}</p></div>
   )
   }
 
