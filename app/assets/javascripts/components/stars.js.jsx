@@ -34,4 +34,4 @@ var Stars = React.createClass({
       </div>
     )
   }
-})
+});

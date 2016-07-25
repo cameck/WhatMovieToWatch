@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Ruby AWS for Amazon Associates
+gem 'aws-sdk', '~> 2'
 # Make HTTP fun again
 gem 'httparty'
 # React for rails
