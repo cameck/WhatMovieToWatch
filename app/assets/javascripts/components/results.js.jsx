@@ -143,6 +143,7 @@ var Results = React.createClass({
                   {this.state.movies[this.state.i].overview.toString()}
                 </p>
                 <ITunesResult movies={this.state.movies} i={this.state.i}/>
+                <AmazonResult movies={this.state.movies} i={this.state.i}/>
               </div>
               <div className="card-action">
 
