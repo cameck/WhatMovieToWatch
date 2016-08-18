@@ -1,4 +1,4 @@
 class WatchlistItem < ActiveRecord::Base
-  validates :movie_title, uniqueness: true
+  validates_uniquenss_of :movie_title, scope: :user
   belongs_to :user
 end
