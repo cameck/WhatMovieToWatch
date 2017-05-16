@@ -42,17 +42,18 @@ $( document ).ready(function(){
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '551107808409493',
-      status     : true,
+      cookie     : true,
       xfbml      : true,
-      version    : 'v2.4' // or v2.0, v2.1, v2.2, v2.3
+      version    : 'v2.8'
     });
+    FB.AppEvents.logPageView();
   };
 
   (function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "//connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 });
