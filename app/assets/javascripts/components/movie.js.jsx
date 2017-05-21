@@ -10,7 +10,7 @@ var Movies = React.createClass({
   getDefaultProps: function() {
     return {
       genres: [],
-      root: "http://movieto.watch/"
+      root: "https://movietowatch.herokuapp.com"
     };
   },
 
