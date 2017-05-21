@@ -1,3 +1,5 @@
+OmniAuth.config.logger = Rails.logger
+puts "HERE IS THE FACEBOOK KEY!: #{ENV['FACEBOOK_KEY']}"
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook,
            ENV['FACEBOOK_KEY'],
