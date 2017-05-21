@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get 'profile/', to: 'user#index', as: 'profile'
   get 'watchlist/:id', to: 'user#watch_list'
 
-  match 'auth/:provider/callback', to: 'sessions#create', via: %i[get post]
-  match 'auth/failure', to: redirect('/'), via: %i[get post]
-  match 'signout', to: 'sessions#destroy', as: 'signout', via: %i[get post]
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: %i[create destroy]
   resource :home, only: [:show]
