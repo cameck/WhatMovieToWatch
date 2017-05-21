@@ -201,6 +201,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
+  omniauth
   omniauth-facebook (= 1.4.0)
   pg
   puma
