@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'pg'
 gem 'puma'
 # Login with Facebook
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 # Font Awesome
 gem 'font-awesome-sass'
 # Use jquery as the JavaScript library
