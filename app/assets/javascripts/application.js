@@ -42,8 +42,9 @@ $( document ).ready(function(){
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '551107808409493',
+      status     : true,
       xfbml      : true,
-      version    : 'v2.9'
+      version    : 'v2.4'
     });
     FB.AppEvents.logPageView();
   };
