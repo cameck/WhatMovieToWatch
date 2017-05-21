@@ -21,7 +21,7 @@ gem 'pg'
 gem 'puma'
 gem 'omniauth'
 # Login with Facebook
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
 # Font Awesome
 gem 'font-awesome-sass'
 # Use jquery as the JavaScript library
