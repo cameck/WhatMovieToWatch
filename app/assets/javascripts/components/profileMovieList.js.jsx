@@ -118,7 +118,7 @@ var ProfileMovieList = React.createClass({
         <div className="col m6 s12">
         <h3>Watchlist</h3>
         <h6>
-          <a href={window.location.protocol + window.location.host + '/watchlist/' + this.props.fbId}>
+          <a href={'https://' + window.location.host + '/watchlist/' + this.props.fbId}>
             Find Your Sharable Link here <i className="fa fa-share" aria-hidden="true"></i>
 
           </a>
