@@ -17,7 +17,8 @@ class SeenMovieController < ApplicationController
 
   private
 
-    def seen_movie_params
-      params.require(:seen_movie).permit(:movie_title, :poster, :overview, :user_id)
-    end
+  def seen_movie_params
+    params.require(:seen_movie).permit(:movie_title, :poster,
+                                       :overview, :user_id)
+  end
 end
