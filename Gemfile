@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use postgreSQL as the database for Active Record
 gem 'pg'
 gem 'puma'
+gem 'omniauth'
 # Login with Facebook
 gem 'omniauth-facebook'
 # Font Awesome
