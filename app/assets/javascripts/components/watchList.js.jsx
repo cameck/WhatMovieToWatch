@@ -33,7 +33,7 @@ var WatchList = React.createClass({
     FB.ui({
       method: 'share',
       display: 'popup',
-      href: 'http://' + window.location.host + '/watchlist/' + this.props.facebookId,
+      href: window.location.protocol + window.location.host + '/watchlist/' + this.props.facebookId,
       }, function(response){});
   },
 
