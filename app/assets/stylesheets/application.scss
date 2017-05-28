@@ -99,10 +99,7 @@ main {
   left:7%;
 }
 
-// .collection .collection-item.avatar .circle {
-//   height: auto;
-//   border-radius: 25%;
-// }
+
 .card.result-card {
 
   .card-image {
@@ -162,4 +159,13 @@ main {
 
 .responsive-image {
   width: 25%;
+}
+
+// Footer
+.page-footer .footer-copyright {
+  flex-direction: column;
+  .container {
+    flex: 1 0 auto;
+    min-height: 2vh;
+  }
 }
