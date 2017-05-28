@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'profile/', to: 'user#index', as: 'profile'
   get 'watchlist/:id', to: 'user#watch_list'
 
-  get 'auth/facebook/', to: 'sessions#create'
+  get 'auth/facebook/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
