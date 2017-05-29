@@ -5,6 +5,8 @@ class UserController < ApplicationController
     else
       @watchlist_items ||= current_user.watchlist_items
       @seen_movies ||= current_user.seen_movies
+      @user_name ||= current_user.name
+      @profile_pic ||= serve_over_https(current_user.profile_picture)
     end
   end
 
