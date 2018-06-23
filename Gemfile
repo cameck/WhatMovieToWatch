@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'httparty'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
